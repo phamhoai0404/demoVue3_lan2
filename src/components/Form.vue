@@ -1,4 +1,5 @@
 <template>
+    <h1>Đây là Component Form</h1>
     <form @submit.prevent="onSubmit()">
         <div>FullName: </div>
         <input type="text" v-model="student.fullname" :class="{error: errorName.status}">

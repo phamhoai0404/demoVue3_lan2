@@ -1,16 +1,16 @@
 <template>
-    
-    <form-test/>
+    <Nav/>
+    <router-view></router-view>
 
 </template>
 
 <script>
-    import Form from './components/Form.vue'
+    import Nav from './components/Nav.vue'
 
     export default {
         name: 'App',
         components: {
-            FormTest: Form,
+            Nav,
         }
     }
 </script>
