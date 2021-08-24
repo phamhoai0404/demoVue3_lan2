@@ -6,12 +6,28 @@ import TransactionDetail from './components/TransactionDetail.vue'
 
 const routersssssss = [
 
-    { path: '/', component: Form },
+    {
+        path: '/',
+        name: 'home-router',
+        component: Form
+    },
 
-    { path: '/about', component: About },
+    {
+        path: '/about',
+        name: 'about-router',
+        component: About
+    },
 
-    { path: '/transaction', component: Transaction },
-    { path: '/transaction/:idddd', component: TransactionDetail },
+    {
+        path: '/transaction',
+        name: 'transaction-router',
+        component: Transaction
+    },
+    {
+        path: '/transaction/:idddd',
+        name: 'transaction-detail-router',
+        component: TransactionDetail
+    },
 ]
 const routerdddddd = createRouter({
     history: createWebHistory(),//Cái này là không hiện dấu thăng #
