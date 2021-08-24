@@ -3,6 +3,7 @@ import Form from './components/Form.vue'
 import About from './components/About.vue'
 import Transaction from './components/Transaction.vue'
 import TransactionDetail from './components/TransactionDetail.vue'
+import NotFound from './components/NotFound.vue'
 
 const routersssssss = [
 
@@ -27,6 +28,16 @@ const routersssssss = [
         path: '/transaction/:idddd',
         name: 'transaction-detail-router',
         component: TransactionDetail
+    },
+    {
+        path: '/abt',//ví dụ khi người ta gọi tắt khi này thì nó sẽ dẫn tới đường dẫn của '/about'
+        redirect:'/about',
+    },
+    //Nếu mà đường đẫn sai thì 
+    // Cái này ở vue-router 4 cải tiến hơn đó vì khi nó ở đường dẫn con muốn dẫn đến cái nào đó thì ta có thể thay đổi nha
+    {
+        path: '/:pathMatch(.*)*',
+        component: NotFound
     },
 ]
 const routerdddddd = createRouter({
