@@ -9,7 +9,37 @@
                 -đầu tiên thì cần cho cái $route vào json rồi nhìn thấy thôi
                 
         -->
-        <h2>{{ $route.params.idddd}}</h2>
-        
+        <h2>id là: {{ $route.params.idddd}}</h2>
+        <div v-if="object">
+            id là : {{object.id}},&nbsp;&nbsp; &nbsp; &nbsp;
+            tên là: {{ object.name}}
+        </div>
+        <div v-else>
+            Đang loading id:  {{ $route.params.idddd}} ....
+        </div>
+
+
+
     </div>
 </template>
+
+<script>
+    export default {
+        data() {
+            return {
+                object: null
+            }
+        },
+
+        created() {
+            fetch("http://localhost:3000/listdata/" + this.$route.params.idddd)
+                .then(respone => respone.json())
+                .then(data => {
+                    this.object = data;
+                    console.log(data);
+                });
+        },
+
+    }
+
+</script>

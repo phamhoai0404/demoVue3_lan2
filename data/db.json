@@ -1,0 +1,28 @@
+{
+    "listdata": [
+        {
+            "id": 1,
+            "name": "Phạm Lan"
+        },
+        {
+            "id": 2,
+            "name": "Phạm Ngọc"
+        },
+        {
+            "id": 3,
+            "name": "Nguyễn Lan"
+        },
+        {
+            "id": 4,
+            "name": "Lê Lan"
+        },
+        {
+            "id": 5,
+            "name": "Hoa Hoa"
+        },
+        {
+            "id": 6,
+            "name": "Phạm Lan"
+        }
+    ]
+}
