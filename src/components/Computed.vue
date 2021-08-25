@@ -11,18 +11,19 @@
     <ul>
         <li v-for="(item, x) in listfillData" :key="x"> {{ item }}</li>
     </ul>
+    <button @click="onChange()">Click</button>
 </template>
 
 <script>
-    import { computed, ref, reactive } from 'vue'
+    import { computed, ref, reactive, watchEffect, watch } from 'vue'
     export default {
         setup() {
             const textArea = ref("");
             const listData = reactive(["Phạm Ngọc", "Nguyễn Lê", "Yên Lan", "Yến Nhi", "John Hang"]);
 
             //Sử dụng computed là khi thay đổi nó sẽ thay đổi tính toán theo nhá 
-            const listfillData = computed(() =>{ 
-                let temp = textArea.value.toLowerCase();
+            const listfillData = computed(() => {
+                let temp = textArea.value.toLowerCase().trim();
                 console.log(" temp - ", temp);
 
                 // Nếu là  anofuntion chỉ có 1 câu lệnh thì không cần return ở trước listData.. cũng được
@@ -35,17 +36,35 @@
 
 
             // Đây là kiểu anofuntion nhá vì có 1 câu lệnh nên không cần có return nha
-            let listfillDatasss = computed(() => 
+            let listfillDatasss = computed(() =>
                 listData.map(item => {
                     item = item.toLowerCase();
                     return item;
                 }).filter(it => it.includes(textArea.value.toLowerCase()))
             );
 
+            // Theo như RHP Team nói thì khi có sự thay đổi thì nó sẽ thực hiện mà không trả về giá trị nhá
+            watchEffect(() => {
+                
+                // kiểu textArea sẽ thay đổi mà theo từng lần mình kích ấy 
+                if(textArea.value){
+                    console.log("Vào watchEffect ...");
+                }
+            });
+
+
+            //watch (đơn giản ấy thì xem được sự  có sự thay đổi thì xẽ xem được) dữ liệu mới và dữ liệu cũ
+            watch((textArea), (newItem, oldItem) =>{
+                console.log( " watch: ", newItem, oldItem);
+            })
+
+            function onChange() {
+                // console.error(" hoa là: ", hoa);
+            }
             return {
-                textArea, listData, listfillData, listfillDatasss
+                textArea, listData, listfillData, listfillDatasss, onChange
             }
         }
-    
+
     }
 </script>
