@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Form from './components/Form.vue'
+import Home from './components/Home.vue'
 import About from './components/About.vue'
 import Transaction from './components/Transaction.vue'
 import TransactionDetail from './components/TransactionDetail.vue'
@@ -8,9 +9,14 @@ import NotFound from './components/NotFound.vue'
 const routersssssss = [
 
     {
+        path: '/form',
+        name: 'form-router',
+        component: Form
+    },
+    {
         path: '/',
         name: 'home-router',
-        component: Form
+        component: Home
     },
 
     {

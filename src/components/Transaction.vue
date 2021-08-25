@@ -28,7 +28,6 @@
                     console.log(data);
                     this.listData = data;
                 });
-
         }
     }
 </script>
