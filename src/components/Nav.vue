@@ -9,5 +9,6 @@
     <router-link :to="{name: 'home-router' }">Home</router-link> &nbsp; &nbsp;
     <router-link :to="{name: 'form-router' }">Form</router-link> &nbsp; &nbsp;
     <router-link :to="{name: 'about-router' }">About</router-link> &nbsp; &nbsp;
-    <router-link :to="{name: 'transaction-router' }">Transaction</router-link>
+    <router-link :to="{name: 'transaction-router' }">Transaction</router-link>&nbsp; &nbsp;
+    <router-link :to="{name: 'transactionv2-router' }">Transaction Version 2</router-link>
 </template>

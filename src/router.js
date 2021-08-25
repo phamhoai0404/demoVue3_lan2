@@ -3,6 +3,7 @@ import Form from './components/Form.vue'
 import Home from './components/Home.vue'
 import Computed from './components/Computed.vue'
 import Transaction from './components/Transaction.vue'
+import TransactionV2 from './components/TransactionV2.vue'
 import TransactionDetail from './components/TransactionDetail.vue'
 import NotFound from './components/NotFound.vue'
 
@@ -29,6 +30,11 @@ const routersssssss = [
         path: '/transaction',
         name: 'transaction-router',
         component: Transaction
+    },
+    {
+        path: '/transactionv2',
+        name: 'transactionv2-router',
+        component: TransactionV2
     },
     {
         path: '/transaction/:idddd',
