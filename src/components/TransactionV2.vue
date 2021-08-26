@@ -13,56 +13,31 @@
     <div v-else>
         loading data....
     </div>
+
+
 </template>
 
 <script>
-    import { ref } from 'vue'
-    export default{
+    import useTransaction from '../reusable(compositionAPI)/fetchTransac.js'
+    export default {
+        setup() {
+            //Mình sử dụng cái nào thì mình gọi ra cái đấy thôi nhá 
+            //Những cái gọi tên ở đây listData,getData,.. thì phải chính xác tên ở trong file js export ấy 
+            const { listData, getData,error } = useTransaction();
 
-        //Lấy dữ liệu các kiểu sẽ lấy ở setup (Composition API) thay vì (created ở Option API)
-        setup(){
-            //ở đây mình nên dùng ref vì mình gián cả mảng rỗng bằng mảng mới 
-            //Nếu mà sử dụng reactive thì chỉ thay thế của từng thành phần trong thôi nếu làm sẽ bất tiện và khó hơn rất nhiều
-            const listData = ref([]);
-            const error = ref(null);
-            
-            //Sử dung async để bất đồng bộ trong js 
-            const getData = async () =>{
-            try {
-                const run = await fetch("http://localhost:3000/listdata");
-                // console.log( run );
-
-                //Nếu mà đường dẫn sai thì vào nó sẽ vào throw new Error....
-                if( !run.ok) throw new Error("Something went wrong");
-
-
-                const respone = await run.json();
-                // console.log( respone);
-                
-                //Phải .value vì nó thuộc kiểu ref nhá 
-                listData.value = respone;
-
-                // hoặc viết kiểu này luôn
-                // listData.value = await run.json();
-            } catch (err) {
-                //Nếu lỗi thì nó sẽ chạy xuống đấy nha
-                error.value = err;
-                console.log( error.value); 
-            }
-               
-
-            }
+            //Phải sử lý function trước thì mới trả về được listData
             getData();
 
-            return{
-                listData, error,getData
-            }
+            // console.log('listData', listData);
 
+            return {
+                listData , error
+            }
         }
     }
 </script>
 <style scoped>
-    .error{
+    .error {
         color: red;
         background-color: azure;
     }
